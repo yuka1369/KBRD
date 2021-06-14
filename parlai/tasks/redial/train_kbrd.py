@@ -7,8 +7,24 @@
 
 For documentation, see parlai.scripts.train_model.
 """
+# root/base.py
 
-from parlai.scripts.train_model import TrainLoop, setup_args
+import sys
+import pathlib
+# base.pyのあるディレクトリの絶対パスを取得
+current_dir = pathlib.Path(__file__).resolve().parent
+#print(current_dir)
+
+select_dir = "/home/is/yuka-ok/KBRD/parlai/scripts"
+
+# モジュールのあるパスを追加
+sys.path.append( str(select_dir)  )
+
+from train_model import TrainLoop, setup_args
+
+
+#from parlai.scripts.train_model import TrainLoop, setup_args
+
 
 if __name__ == "__main__":
     parser = setup_args()
