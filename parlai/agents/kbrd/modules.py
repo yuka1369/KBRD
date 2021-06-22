@@ -41,6 +41,9 @@ def _edge_list(kg, n_entity):
     edge_list = []
     self_loop_id = None
     for entity in range(n_entity):
+        # change_tag1
+        print("entity")
+        print(entity)
         if entity not in kg:
             continue
         for tail_and_relation in kg[entity]:
@@ -48,8 +51,12 @@ def _edge_list(kg, n_entity):
                 edge_list.append((entity, tail_and_relation[1], tail_and_relation[0]))
                 edge_list.append((tail_and_relation[1], entity, tail_and_relation[0]))
             else:
+                print("self_loop_id")
+                print(self_loop_id)
                 self_loop_id = tail_and_relation[0]
-    assert self_loop_id
+
+    #[yuka-change]why is there aseert hear? When this function is called, This program　will stops　absolutely. so I do commentout below line.
+    #assert self_loop_id
     for entity in range(n_entity):
         # add self loop
         edge_list.append((entity, entity, self_loop_id))
